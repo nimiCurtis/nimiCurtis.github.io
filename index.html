@@ -71,21 +71,30 @@
 
             <tr>
               <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/pilot.gif" alt="ag" width="260" height="160">
+                  <video  width=100% height=100% muted autoplay loop> 
+                  <source src="data/viden.mp4" type="video/mp4">
+                  </video>
+                  <!-- <img src='images/cat3d.jpg' width="160"> -->
+                <!-- <source src="data/viden.mp4" alt="vid" width="260" height="160" type="video/mp4"> -->
               </td>
               <td width="75%" valign="middle">
-                <!-- <a href="https://arxiv.org/abs/2309.10409"> -->
-                  <strong><span class="papertitle">Ongoing ...</span></strong>
-                <!-- </a> -->
+                <a href="https://nimicurtis.github.io/ViDEN/">
+                  <strong><span class="papertitle">Embodiment-Agnostic Navigation Policy Trained with Visual Demonstrations</span></strong>
+                </a>
                 <br>
-                  <strong>Nimrod Curtis</strong>, <a href="https://www.linkedin.com/in/osher-azulay">Osher Azulay</a> and <a href="http://web2.eng.tau.ac.il/wtest/Avishailab/index.php/sintov/">Avishai Sintov</a>.
+                  <strong>Nimrod Curtis</strong>*, <a href="https://www.linkedin.com/in/osher-azulay">Osher Azulay*</a> and <a href="http://web2.eng.tau.ac.il/wtest/Avishailab/index.php/sintov/">Avishai Sintov</a>.
                 <br>
                 <em>preprint</em>.
                 <br>
-                <p>Code will be uploaded soon.</p>
-                <p>Developed a novel learning framework for visual navigation in autonomous person-following tasks. The framework collects visual data from human demonstrations, labeled with trajectory odometry. Using generative models like diffusion policies and transformers, the AI agent generates action trajectories, enabling a mobile robot to track a subject and navigate around obstacles.</p>
+                <a href="https://arxiv.org/pdf/2412.20226">paper</a>
+                /
+                <a href="https://github.com/nimiCurtis/pilot_bc">code</a>
+                /
+                <a href="https://www.youtube.com/watch?v=-iZPtkif8oI">video</a>
+                <p>We proposed ViDEN, a framework that uses visual demonstrations and depth-based observations to train embodiment-agnostic navigation policies. ViDEN generates adaptive, collision-free trajectories while reducing data collection needs and enabling scalable deployment.</p>
               </td>
             </tr>
+            
 
 
             <tr>
