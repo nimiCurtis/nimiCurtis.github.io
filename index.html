@@ -1,346 +1,427 @@
-<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <head>
-      <!-- <style>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimrod Curtis - Deep Learning and Robotics Research Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
         body {
-          background-image: url('images/background.png'); /* Ensure the path is correct */
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A; /* slate-900 */
         }
-      </style> -->
+        .section {
+            scroll-margin-top: 72px; /* Adjust for fixed header height */
+        }
+        .text-glow {
+            text-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-300">
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <title>Nimrod Curtis</title>
-
-    <meta name="author" content="Nimrod Curtis">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
-  </head>
-
-  <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                  Nimrod Curtis
-                </p>
-                <p>I am currently pursuing my MSc in Robotics at Tel Aviv University <a href="https://web2.eng.tau.ac.il/wtest/Avishailab/">(ROB-TAU)</a> ,
-                    driven by a deep passion for how robots can seamlessly integrate into our world to benefit humanity.
-                    My research interests lie at the intersection of robotics, perception, and deep learning,
-                    where I explore innovative solutions to complex challenges. 
-                </p>
-
-                <p style="text-align:center">
-                  <a href="mailto:nimicu21@gmail.com">Email</a> &nbsp;/&nbsp;
-                  <a href="data/Nimrod_Curtis_CV.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="https://www.linkedin.com/in/nimrod-curtis">LinkedIn</a> &nbsp;/&nbsp;
-
-                  <!-- <a href="https://scholar.google.com/citations?hl=en&user=jktWnL8AAAAJ">Scholar</a> &nbsp;/&nbsp; -->
-                  <a href="https://github.com/nimiCurtis/">Github</a>
-                </p>
-                <p> 
-                  Don't hesitate to contact!
-                </p>
-              </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
-                <a href="images/nimrodImage.jpeg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/nimrodImage.jpeg" class="hoverZoomLink"></a>
-              </td>
-
-              
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle">
-                <h2>Research</h2>
-                <p>
-                  I'm interested in Robot learning, deep learning, generative AI, computer vision and robots perception.
-                </p>
-              </td>
-            </tr>
-          </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                  <video  width=100% height=100% muted autoplay loop> 
-                  <source src="data/viden.mp4" type="video/mp4">
-                  </video>
-                  <!-- <img src='images/cat3d.jpg' width="160"> -->
-                <!-- <source src="data/viden.mp4" alt="vid" width="260" height="160" type="video/mp4"> -->
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://nimicurtis.github.io/ViDEN/">
-                  <strong><span class="papertitle">Embodiment-Agnostic Navigation Policy Trained with Visual Demonstrations</span></strong>
-                </a>
-                <br>
-                  <strong>Nimrod Curtis</strong>*, <a href="https://www.linkedin.com/in/osher-azulay">Osher Azulay*</a> and <a href="http://web2.eng.tau.ac.il/wtest/Avishailab/index.php/sintov/">Avishai Sintov</a>.
-                <br>
-                <em>preprint</em>.
-                <br>
-                <a href="https://arxiv.org/pdf/2412.20226">paper</a>
-                /
-                <a href="https://github.com/nimiCurtis/pilot_bc">code</a>
-                /
-                <a href="https://www.youtube.com/watch?v=-iZPtkif8oI">video</a>
-                <p>We proposed ViDEN, a framework that uses visual demonstrations and depth-based observations to train embodiment-agnostic navigation policies. ViDEN generates adaptive, collision-free trajectories while reducing data collection needs and enabling scalable deployment.</p>
-              </td>
-            </tr>
-            
-
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/aug.png" alt="ag" width="260" height="160">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://arxiv.org/abs/2309.10409">
-                  <span class="papertitle">Augmenting Tactile Simulators with Real-like and Zero-Shot Capabilities</span>
-                </a>
-                <br>
-                  <strong>Nimrod Curtis</strong>*, <a href="https://www.linkedin.com/in/osher-azulay">Osher Azulay</a>*,<a href="https://www.linkedin.com/in/alon-mizrahi-4978a2238/">Alon Mizrahi</a>*,
-                  and <a href="http://web2.eng.tau.ac.il/wtest/Avishailab/index.php/sintov/">Avishai Sintov</a>.
-                <br>
-                <em>ICRA, 2024</em>.
-                <br>
-                <a href="https://arxiv.org/abs/2309.10409">paper</a>
-                /
-                <a href="https://github.com/RobLab-Allsight/allsight_sim2real">code</a>
-                <p></p>
-                <p>Tackling the sim-to-real problem for high resolution 3D round sensors using bi-directional Generative Adversarial Networks.</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/allsight.gif" alt="all" width="260" height="160">
-              </td>
-              <td width="75%" valign="middle">
-                <a href="https://arxiv.org/abs/2307.02928">
-                  <span class="papertitle">AllSight: A Low-Cost and High-Resolution Round Tactile Sensor with Zero-Shot Learning Capability</span>
-                </a>
-                <br>
-                  <a href="https://www.linkedin.com/in/osher-azulay">Osher Azulay</a>, <strong>Nimrod Curtis</strong>, Rotem Sokolovsky, Guy Levitski, Daniel Slomovik, Guy Lilling and <a href="http://web2.eng.tau.ac.il/wtest/Avishailab/index.php/sintov/">Avishai Sintov</a>.
-                <br>
-                <em>IEEE RA-L & ICRA, 2024.</em>.
-                <br>
-                <a href="https://arxiv.org/abs/2309.10409">paper</a>
-                /
-                <a href="https://github.com/osheraz/allsight">code</a>
-                /
-                <a href="https://www.youtube.com/watch?v=Cv90pMow7SI">video</a>
-                <p></p>
-                <p>Introducing AllSight, an optical tactile sensor with a round 3D structure designed for robotic inhand manipulation tasks.</p>
-              </td>
-            </tr>
-
-
-            <!-- allsight the first -->
-            <!-- pilot -->
-
-    <!-- <tr onmouseout="cat3d_stop()" onmouseover="cat3d_start()" bgcolor="#ffffd0">
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='cat3d_image'><video  width=100% height=100% muted autoplay loop>
-          <source src="images/cat3d.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/cat3d.jpg' width="160">
+    <!-- Header -->
+    <header class="bg-slate-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">NC</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-slate-300 hover:text-cyan-400 transition duration-300">About</a>
+                <a href="#interests" class="text-slate-300 hover:text-cyan-400 transition duration-300">Interests</a>
+                <a href="#experience" class="text-slate-300 hover:text-cyan-400 transition duration-300">Experience</a>
+                <a href="#education" class="text-slate-300 hover:text-cyan-400 transition duration-300">Education</a>
+                <a href="#research" class="text-slate-300 hover:text-cyan-400 transition duration-300">Research</a>
+                <a href="#projects" class="text-slate-300 hover:text-cyan-400 transition duration-300">Projects</a>
+                <a href="#awards" class="text-slate-300 hover:text-cyan-400 transition duration-300">Awards</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-slate-300 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
         </div>
-        <script type="text/javascript">
-          function cat3d_start() {
-            document.getElementById('cat3d_image').style.opacity = "1";
-          }
-
-          function cat3d_stop() {
-            document.getElementById('cat3d_image').style.opacity = "0";
-          }
-          cat3d_stop()
-        </script>
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://cat3d.github.io/">
-			<span class="papertitle">CAT3D: Create Anything in 3D with Multi-View Diffusion Models
-      </span>
-        </a>
-        <br>
-				<a href="https://ruiqigao.github.io/">Ruiqi Gao</a>*,
-        <a href="https://holynski.org/">Aleksander Holynski</a>*, 
-        <a href="https://henzler.github.io/">Philipp Henzler</a>,
-        <a href="https://github.com/ArthurBrussee">Arthur Brussee</a>, 
-				<a href="http://ricardomartinbrualla.com/">Ricardo Martin Brualla</a>, 
-        <a href="https://pratulsrinivasan.github.io/">Pratul P. Srinivasan</a>,
-				<strong>Jonathan T. Barron</strong>,
-        <a href="https://poolio.github.io/">Ben Poole</a>*
-
-        <br>
-        <em>arXiv</em>, 2024
-        <br>
-        <a href="https://cat3d.github.io/">project page</a>
-        /
-        <a href="https://arxiv.org/abs/2405.10314">arXiv</a>
-        <p></p>
-        <p>
-				A single model built around diffusion and NeRF that does text-to-3D, image-to-3D, and few-view reconstruction, trains in 1 minute, and renders at 60FPS in a browser.
-        </p>
-      </td>
-    </tr> -->
-
-    <!-- <tr onmouseout="bog_stop()" onmouseover="bog_start()">
-      <td style="padding:20px;width:25%;vertical-align:middle">
-        <div class="one">
-          <div class="two" id='bog_image'><video  width=100% muted autoplay loop>
-          <source src="images/bog.jpg" type="video/mp4">
-          Your browser does not support the video tag.
-          </video></div>
-          <img src='images/bog.jpg' width=100%>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">About</a>
+            <a href="#interests" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Interests</a>
+            <a href="#experience" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Experience</a>
+            <a href="#education" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Education</a>
+            <a href="#research" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Research</a>
+            <a href="#projects" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Projects</a>
+            <a href="#awards" class="block py-2 px-6 text-slate-300 hover:bg-slate-800">Awards</a>
         </div>
-        <script type="text/javascript">
-          function bog_start() {
-            document.getElementById('bog_image').style.opacity = "1";
-          }
+    </header>
 
-          function bog_stop() {
-            document.getElementById('bog_image').style.opacity = "0";
-          }
-          bog_stop()
-        </script>
-      </td>
-      <td style="padding:20px;width:75%;vertical-align:middle">
-        <a href="https://creiser.github.io/binary_opacity_grid/">
-          <span class="papertitle">Binary Opacity Grids: Capturing Fine Geometric Detail for Mesh-Based View Synthesis
-</span>
-        </a>
-        <br>
-				<a href="https://creiser.github.io/">Christian Reiser</a>,
-				<a href="http://stephangarbin.com/">Stephan J. Garbin</a>,
-				<a href="https://pratulsrinivasan.github.io/">Pratul Srinivasan</a>,
-				<a href="https://dorverbin.github.io/">Dor Verbin</a>,
-				<a href="https://szeliski.org/RichardSzeliski.htm">Richard Szeliski</a>,
-				<a href="https://bmild.github.io/">Ben Mildenhall</a>,
-				<strong>Jonathan T. Barron</strong>,
-				<a href="https://phogzone.com/">Peter Hedman</a>*,
-				<a href="https://www.cvlibs.net/">Andreas Geiger</a>*		
-        <br>
-        <em>SIGGRAPH</em>, 2024
-        <br>
-        <a href="https://creiser.github.io/binary_opacity_grid/">project page</a>
-        /
-        <a href="https://www.youtube.com/watch?v=2TPUmGRg8bM">video</a>
-        /
-        <a href="https://arxiv.org/abs/2402.12377">arXiv</a>
-        <p></p>
-        <p>
-        Applying anti-aliasing to a discrete opacity grid lets you render a hard representation into a soft image, and this enables highly-detailed mesh recovery.
-        </p>
-      </td>
-    </tr> -->
-
-          </tbody></table>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-            <tr>
-              <td>
-                <h2>Projects</h2>
-              </td>
-            </tr>
-          </tbody></table>
-          
-
-          <!-- <table width="100%" align="center" border="0" cellpadding="20"><tbody> -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/slam_project.gif" alt="SLAM Project" width="260" height="160">
-              </td>
-              <td width="75%" valign="middle">
-                <span class="papertitle">Collection of Mini-Projects on SLAM Using KITTI Dataset</span>
-                <br>
-                <strong>Nimrod Curtis</strong>
-                <br>
-                <a href="https://github.com/nimiCurtis/Mobile_Robot_Localization_and_Mapping_Course">project details</a>
-                <p></p>
-                <p>This collection showcases various SLAM techniques and implementations using the KITTI dataset, focusing on enhancing localization and mapping capabilities for mobile robots.</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/deep_learning_project.png" alt="Deep Learning Project" width="260" height="160">
-              </td>
-              <td width="75%" valign="middle">
-                <span class="papertitle">Deep Learning Projects Collection</span>
-                <br>
-                <strong>Nimrod Curtis</strong>
-                <br>
-                <a href="https://github.com/nimiCurtis/Deep_Learning_Course">project details</a>
-                <p></p>
-                <p>This collection features various deep learning projects, exploring different neural network architectures and their applications.</p>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/shopipal.gif" alt="ShopiPal Project" width="260" height="160">
-              </td>
-              <td width="75%" valign="middle">
-                <span class="papertitle">ShopiPal: An Autonomous Robotic Cart</span>
-                <br>
-                <strong>Nimrod Curtis</strong>, Omer Cohen, Itai Peleg and Eran Feingold.
-                <br>
-                <em>B.Sc Final Project in Mechanical Engineering</em>.
-                <br>
-                <a href="https://github.com/ShopiPal/Pal_Controller">code</a> / <a href="data/shopipal_poster.pdf">poster</a> &nbsp;
-                <p></p>
-                <p>ShopiPal, designed as an autonomous robotic cart, aims to assist manual picking process in supermarkets and warehouses, enhancing convenience and efficiency in shopping environments.</p>
-              </td>
-            </tr>
-          
-            <tr>
-              <td style="padding:20px;width:25%;vertical-align:middle">
-                <img src="images/computer_vision_projects.png" alt="Computer Vision Projects" width="260" height="160">
-              </td>
-              <td width="75%" valign="middle">
-                <span class="papertitle">Computer Vision Mini Projects Collection</span>
-                <br>
-                <strong>Nimrod Curtis</strong>
-                <br>
-                <a href="https://github.com/nimiCurtis/Computer_Vision_Course">project details</a>
-                <p></p>
-                <p>This collection includes a variety of computer vision projects such as image stitching for panoramas, real/fake image detection, and more, demonstrating applications of CV techniques.</p>
-              </td>
-            </tr>
-
-            <!-- TODO: 
-            1. add my reserach
-            3. add stair_detection and modeling project
-            4. better gif for shopipal
-            5. add smart led project
-          -->
-
-
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:right;font-size:small;">
-                  Design and source code from <a href="https://github.com/jonbarron/jonbarron_website"> Jon Barron website</a>.
+    <main class="container mx-auto px-6 pt-24">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center">
+            <div class="text-center md:text-left w-full">
+                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
+                    Hi, I'm Nimrod Curtis.
+                </h1>
+                <h2 class="text-3xl md:text-5xl font-semibold text-cyan-400 mt-4 text-glow">
+                    Deep Learning and Robotics Research Engineer.
+                </h2>
+                <p class="text-lg text-slate-400 mt-8 max-w-2xl mx-auto md:mx-0">
+                    M.Sc. in Robotics with a strong background in deep learning, computer vision, and algorithm development for autonomous systems. Actively seeking roles at the convergence of deep learning, algorithms and robotics.
                 </p>
-              </td>
-            </tr>
-          </tbody></table>
-        </td>
-      </tr>
-    </table>
-  </body>
+                <!-- Social Icons -->
+                <div class="mt-8 flex justify-center md:justify-start space-x-6">
+                    <a href="mailto:nimicu21@gmail.com" class="text-slate-400 hover:text-cyan-400 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.25 4.5A2.25 2.25 0 014.5 2.25h15A2.25 2.25 0 0121.75 4.5v15a2.25 2.25 0 01-2.25 2.25h-15A2.25 2.25 0 012.25 19.5v-15zM4.5 4.5v.034l7.18 5.026a.75.75 0 00.82 0l7.18-5.026V4.5h-15zM4.5 6.532l5.48 3.835a2.25 2.25 0 002.46 0l5.48-3.835V19.5h-13.44V6.532z"></path></svg>
+                    </a>
+                    <a href="https://github.com/nimiCurtis" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nimrod-curtis/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition duration-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 section">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3">
+                    <img src="images/nimrodImage.jpeg" alt="Nimrod Curtis" class="rounded-full shadow-lg w-64 h-64 md:w-full md:h-auto mx-auto object-cover border-4 border-slate-700">
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-semibold text-cyan-400 mb-4">Who am I?</h3>
+                    <p class="text-slate-400 leading-relaxed mb-4">
+                        I am a Robotics Research Engineer with an M.Sc. in Robotics and a strong foundation in deep learning, computer vision, and algorithm development for autonomous systems. 
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        My hands-on experience includes imitation learning, robotic manipulation, and perception for real-world applications. I am passionate about developing innovative solutions at the intersection of AI and robotics, and I thrive on solving complex challenges that push the boundaries of technology. I am a quick learner, a collaborative team player, and a problem-solver with a focus on creating impactful, solution-oriented results.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests Section -->
+        <section id="interests" class="py-20 section">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Interests</h2>
+            <div class="flex flex-wrap justify-center gap-8 text-center">
+                <div class="flex flex-col items-center gap-2 w-24">
+                    <div class="bg-slate-800 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.364 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.364-1.118L2.98 9.11c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                    </div>
+                    <p class="font-medium text-white">Robotics</p>
+                </div>
+                <div class="flex flex-col items-center gap-2 w-24">
+                    <div class="bg-slate-800 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    </div>
+                    <p class="font-medium text-white">Deep Learning</p>
+                </div>
+                <div class="flex flex-col items-center gap-2 w-24">
+                    <div class="bg-slate-800 p-4 rounded-full">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                    </div>
+                    <p class="font-medium text-white">Computer Vision</p>
+                </div>
+                 <div class="flex flex-col items-center gap-2 w-24">
+                    <div class="bg-slate-800 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    </div>
+                    <p class="font-medium text-white">Algorithms</p>
+                </div>
+                 <div class="flex flex-col items-center gap-2 w-24">
+                    <div class="bg-slate-800 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <p class="font-medium text-white">Perception</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 section">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Experience</h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-slate-800 p-6 rounded-lg shadow-lg flex items-start gap-6">
+                    <img src="https://placehold.co/80x80/1E293B/FFFFFF?text=B" alt="Bosch Logo" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold text-white">Robotics & AI Researcher</h3>
+                            <p class="text-slate-500">2024 - Present</p>
+                        </div>
+                        <p class="text-cyan-400 mt-1">Bosch Corporate Research</p>
+                        <ul class="list-disc list-inside text-slate-400 mt-4 space-y-2">
+                            <li>Developing AI-driven solutions for UR5E-based assembly automation in Bosch plants.</li>
+                            <li>Researching robotic manipulation and perception at BCAI-Haifa.</li>
+                        </ul>
+                        <div class="mt-4 pt-4 border-t border-slate-700">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Behavior Cloning</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">6D Pose Estimation</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Force Control</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg shadow-lg flex items-start gap-6">
+                    <img src="https://placehold.co/80x80/1E293B/FFFFFF?text=TAU" alt="Tel Aviv University Logo" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold text-white">Course Instructor, Computational Intelligence</h3>
+                            <p class="text-slate-500">2022 - 2024</p>
+                        </div>
+                        <p class="text-cyan-400 mt-1">Tel Aviv University</p>
+                        <ul class="list-disc list-inside text-slate-400 mt-4 space-y-2">
+                            <li>Designed and delivered hands-on python exercises covering genetic algorithms, fuzzy logic, and ML/DL.</li>
+                        </ul>
+                        <div class="mt-4 pt-4 border-t border-slate-700">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Genetic Algorithms</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">ML & DL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg shadow-lg flex items-start gap-6">
+                    <img src="https://placehold.co/80x80/1E293B/FFFFFF?text=IR" alt="Indoor Robotics Logo" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold text-white">Integration System Engineer</h3>
+                            <p class="text-slate-500">2020 - 2022</p>
+                        </div>
+                        <p class="text-cyan-400 mt-1">Indoor Robotics</p>
+                        <ul class="list-disc list-inside text-slate-400 mt-4 space-y-2">
+                            <li>Built, operated, and designed tests for autonomous drones and docking systems.</li>
+                        </ul>
+                        <div class="mt-4 pt-4 border-t border-slate-700">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">System Integration</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Electronics</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Mechatronics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20 section">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Education</h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-slate-800 p-6 rounded-lg shadow-lg flex items-start gap-6">
+                    <img src="https://placehold.co/80x80/1E293B/FFFFFF?text=TAU" alt="Tel Aviv University Logo" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold text-white">M.Sc in Robotics, Mechanical Engineering</h3>
+                            <p class="text-slate-500">2022 - 2024</p>
+                        </div>
+                        <p class="text-cyan-400 mt-1">Tel Aviv University</p>
+                        <p class="text-slate-400 mt-2">GPA 95/100</p>
+                    </div>
+                </div>
+                 <div class="bg-slate-800 p-6 rounded-lg shadow-lg flex items-start gap-6">
+                    <img src="https://placehold.co/80x80/1E293B/FFFFFF?text=TAU" alt="Tel Aviv University Logo" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+                    <div class="flex-grow">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold text-white">B.Sc, Mechanical Engineering</h3>
+                            <p class="text-slate-500">2018 - 2022</p>
+                        </div>
+                        <p class="text-cyan-400 mt-1">Tel Aviv University</p>
+                        <p class="text-slate-400 mt-2">GPA 89/100</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="py-20 section">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">My Research</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                    <video class="w-full h-48 object-cover" muted autoplay loop> 
+                        <source src="data/viden.mp4" type="video/mp4">
+                    </video>
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white">Embodiment-Agnostic Navigation Policy Trained with Visual Demonstrations</h3>
+                        <p class="text-slate-400 mt-2"><strong>Nimrod Curtis*</strong>, Osher Azulay*, and Avishai Sintov.</p>
+                        <p class="text-cyan-400 mt-1 italic">preprint</p>
+                        <p class="text-slate-400 mt-4">We proposed ViDEN, a framework that uses visual demonstrations and depth-based observations to train embodiment-agnostic navigation policies.</p>
+                        <div class="mt-4">
+                            <a href="https://nimicurtis.github.io/ViDEN/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block mr-4">Project Page &rarr;</a>
+                            <a href="https://arxiv.org/pdf/2412.20226" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block mr-4">Paper &rarr;</a>
+                            <a href="https://github.com/nimiCurtis/pilot_bc" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block">Code &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                    <img src="images/aug.png" alt="Augmenting Tactile Simulators" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white">Augmenting Tactile Simulators with Real-like and Zero-Shot Capabilities</h3>
+                        <p class="text-slate-400 mt-2"><strong>Nimrod Curtis*</strong>, Osher Azulay*, Alon Mizrahi*, and Avishai Sintov.</p>
+                        <p class="text-cyan-400 mt-1 italic">ICRA, 2024</p>
+                        <p class="text-slate-400 mt-4">Tackling the sim-to-real problem for high resolution 3D round sensors using bi-directional Generative Adversarial Networks.</p>
+                        <div class="mt-4">
+                            <a href="https://arxiv.org/abs/2309.10409" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block mr-4">Paper &rarr;</a>
+                            <a href="https://github.com/RobLab-Allsight/allsight_sim2real" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block">Code &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                    <img src="images/allsight.gif" alt="AllSight Tactile Sensor" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white">AllSight: A Low-Cost and High-Resolution Round Tactile Sensor</h3>
+                        <p class="text-slate-400 mt-2">Osher Azulay, <strong>Nimrod Curtis</strong>, et al.</p>
+                        <p class="text-cyan-400 mt-1 italic">IEEE RA-L & ICRA, 2024</p>
+                        <p class="text-slate-400 mt-4">Introducing AllSight, an optical tactile sensor with a round 3D structure designed for robotic inhand manipulation tasks.</p>
+                        <div class="mt-4">
+                            <a href="https://arxiv.org/abs/2307.02928" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block mr-4">Paper &rarr;</a>
+                            <a href="https://github.com/osheraz/allsight" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block">Code &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 section">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                    <img src="images/shopipal.gif" alt="ShopiPal Project" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">ShopiPal: An Autonomous Robotic Cart</h3>
+                        <p class="text-cyan-400 italic text-sm">B.Sc Final Project</p>
+                        <p class="text-slate-400 my-4">ShopiPal aims to assist the manual picking process in supermarkets and warehouses, enhancing convenience and efficiency.</p>
+                        <a href="https://github.com/ShopiPal/Pal_Controller" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold">View Code &rarr;</a>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">ROS</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">C++</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Jetson Nano</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                    <img src="images/slam_project.gif" alt="SLAM Project" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Mini-Projects on SLAM</h3>
+                        <p class="cyan-400 italic text-sm">Coursework</p>
+                        <p class="text-slate-400 my-4">A collection of various SLAM techniques and implementations using the KITTI dataset to enhance localization and mapping.</p>
+                        <a href="https://github.com/nimiCurtis/Mobile_Robot_Localization_and_Mapping_Course" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold">View Project &rarr;</a>
+                    </div>
+                    <div class="p-6 pt-0">
+                         <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">SLAM</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">C++</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">KITTI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                    <img src="images/deep_learning_project.png" alt="Deep Learning Project" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Deep Learning Projects Collection</h3>
+                        <p class="cyan-400 italic text-sm">Coursework</p>
+                        <p class="text-slate-400 my-4">This collection features various deep learning projects, exploring different neural network architectures and their applications.</p>
+                        <a href="https://github.com/nimiCurtis/Deep_Learning_Course" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold">View Project &rarr;</a>
+                    </div>
+                     <div class="p-6 pt-0">
+                         <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Deep Learning</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">PyTorch</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                    <img src="images/computer_vision_projects.png" alt="Computer Vision Projects" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Computer Vision Mini Projects</h3>
+                        <p class="cyan-400 italic text-sm">Coursework</p>
+                        <p class="text-slate-400 my-4">A collection of computer vision projects such as image stitching, real/fake image detection, and more.</p>
+                        <a href="https://github.com/nimiCurtis/Computer_Vision_Course" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold">View Project &rarr;</a>
+                    </div>
+                     <div class="p-6 pt-0">
+                         <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Computer Vision</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">OpenCV</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Awards Section -->
+        <section id="awards" class="py-20 section">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Awards</h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-xl font-bold text-white">Dean's List, M.Sc</h3>
+                        <p class="text-slate-500">2025</p>
+                    </div>
+                    <p class="text-cyan-400 mt-1">Tel Aviv University</p>
+                </div>
+                <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-xl font-bold text-white">Faculty Scholarship for M.Sc Excellence</h3>
+                        <p class="text-slate-500">2024</p>
+                    </div>
+                    <p class="text-cyan-400 mt-1">Tel Aviv University</p>
+                </div>
+                 <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-xl font-bold text-white">IEEE RAS Travel Award</h3>
+                        <p class="text-slate-500">2024</p>
+                    </div>
+                    <p class="text-cyan-400 mt-1">Tel Aviv University</p>
+                </div>
+                 <div class="bg-slate-800 p-6 rounded-lg shadow-lg">
+                    <div class="flex justify-between items-baseline">
+                        <h3 class="text-xl font-bold text-white">Outstanding Final Project</h3>
+                        <p class="text-slate-500">2022</p>
+                    </div>
+                    <p class="text-cyan-400 mt-1">Mechanical Engineering Faculty, Tel Aviv University</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 mt-20">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500 relative">
+             <a href="#" class="absolute -top-6 left-1/2 -translate-x-1/2 bg-cyan-500 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-cyan-600 transition duration-300 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                </svg>
+            </a>
+            <p class="mb-4 pt-8">Looking forward to creating amazing things together.</p>
+            <p>&copy; 2025 Nimrod Curtis. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
+
+</body>
 </html>
