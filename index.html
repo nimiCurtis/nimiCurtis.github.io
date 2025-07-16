@@ -23,7 +23,7 @@
         }
         /* Style for Font Awesome icons to match size */
         .interest-icon {
-            font-size: 2rem; /* 32px */
+            font-size: 1.75rem; /* 28px */
             line-height: 1;
         }
     </style>
@@ -59,9 +59,9 @@
         </div>
     </header>
 
-    <main class="container mx-auto px-6 pt-24">
+    <main class="container mx-auto px-6">
         <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex items-center">
+        <section id="home" class="min-h-screen flex items-center pt-24 bg-gradient-to-b from-slate-900 to-slate-800 -mx-6 px-6">
             <div class="text-center md:text-left w-full">
                 <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
                     Hi, I'm Nimrod Curtis.
@@ -70,7 +70,7 @@
                     Deep Learning and Robotics Research Engineer.
                 </h2>
                 <p class="text-lg text-slate-400 mt-8 max-w-2xl mx-auto md:mx-0">
-                    M.Sc. in Robotics specializing in deep learning, computer vision, and algorithms for autonomous systems. Seeking roles at the intersection of AI and robotics.
+                    Robotics researcher with an M.Sc., applying deep learning and computer vision to create intelligent autonomous systems for real-world impact.
                 </p>
                 <!-- Social Icons -->
                 <div class="mt-8 flex justify-center md:justify-start space-x-6">
@@ -90,8 +90,10 @@
             </div>
         </section>
 
+        <div class="border-b border-slate-800 my-20"></div>
+
         <!-- About Section -->
-        <section id="about" class="pt-4 pb-20 section">
+        <section id="about" class="py-20 section">
             <h2 class="text-4xl font-bold text-center text-white mb-8">About Me</h2>
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/3">
@@ -99,11 +101,13 @@
                 </div>
                 <div class="md:w-2/3">
                     <p class="text-slate-400 leading-relaxed md:text-2xl">
-                        I am a Robotics Research Engineer with an M.Sc. in Robotics, specializing in deep learning and computer vision. My passion lies in developing innovative solutions for autonomous systems by tackling complex challenges at the intersection of AI and robotics. I am a quick learner and a collaborative, solution-oriented problem-solver.
+                        I am a researcher on the robotics team at Bosch Corporate Research, focusing on applied research for robotic assembly. I hold an M.Sc. in Robotics from Tel Aviv University's lab, where I gained hands-on experience in robotics, deep learning, imitation learning and computer vision. My passion lies at the intersection of AI and robotics—specifically, the seamless integration of smart robots into real-world applications for human benefit. I am a highly motivated and committed team player who thrives on helping my colleagues improve and succeed together.
                     </p>
                 </div>
             </div>
-            </section>
+        </section>
+
+        <div class="border-b border-slate-800 my-20"></div>
 
         <!-- Interests Section -->
         <section id="interests" class="py-20 section">
@@ -160,6 +164,8 @@
             </div>
         </section>
 
+        <div class="border-b border-slate-800 my-20"></div>
+
         <!-- Experience Section -->
         <section id="experience" class="py-20 section">
             <h2 class="text-4xl font-bold text-center text-white mb-12">Experience</h2>
@@ -177,9 +183,12 @@
                         </p>
                         <div class="mt-4 pt-4 border-t border-slate-700">
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Behavior Cloning</span>
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">6D Pose Estimation</span>
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Force Control</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Imitation learning</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">6D Pose Estimation and Tracking</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Manipulation</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Research</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Git</span>
                             </div>
                         </div>
                     </div>
@@ -198,9 +207,20 @@
                         </p>
                         <div class="mt-4 pt-4 border-t border-slate-700">
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Genetic Algorithms</span>
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">ML & DL</span>
+                                
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Robotics</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Deep Learning</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Research</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Control</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Computer Vision</span>
+                                <!-- Technical -->
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Simulation</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Jetson</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Git</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Pytorch</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">ROS1/2</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">C++</span>
                             </div>
                         </div>
                     </div>
@@ -219,10 +239,17 @@
                         </p>
                         <div class="mt-4 pt-4 border-t border-slate-700">
                             <div class="flex flex-wrap gap-2">
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Genetic Algorithms</span>
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">ML & DL</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Computeational Intelligence</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Machine Learning</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Deep Learning</span>
+                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Teaching</span>
+
+                                <!-- Technical -->
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
                             </div>
+                        </div>
+                        <div class="mt-4">
+                            <a href="https://github.com/nimiCurtis/Computational_Intelligence_Course" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block mr-4">Course Github Page &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -240,14 +267,17 @@
                         <div class="mt-4 pt-4 border-t border-slate-700">
                             <div class="flex flex-wrap gap-2">
                                 <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">System Integration</span>
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Electronics</span>
-                                <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Mechatronics</span>
+                                <!-- Technical -->
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Electronics</span>
+                                <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Mechatronics</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <div class="border-b border-slate-800 my-20"></div>
 
         <!-- Education Section -->
         <section id="education" class="py-20 section">
@@ -278,11 +308,13 @@
             </div>
         </section>
 
+        <div class="border-b border-slate-800 my-20"></div>
+
         <!-- Research Section -->
         <section id="research" class="py-20 section">
             <h2 class="text-4xl font-bold text-center text-white mb-12">My Research</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-slate-600 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-600 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
                     <video class="w-full h-48 object-cover" muted autoplay loop> 
                         <source src="data/viden.mp4" type="video/mp4">
                     </video>
@@ -298,7 +330,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-600 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                <div class="bg-slate-600 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
                     <img src="images/aug.png" alt="Augmenting Tactile Simulators" class="w-full h-48 object-cover">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold text-white">Augmenting Tactile Simulators with Real-like and Zero-Shot Capabilities</h3>
@@ -311,7 +343,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
                     <img src="images/allsight.gif" alt="AllSight Tactile Sensor" class="w-full h-48 object-cover">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold text-white">AllSight: A Low-Cost and High-Resolution Round Tactile Sensor</h3>
@@ -324,15 +356,30 @@
                         </div>
                     </div>
                 </div>
+                 <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
+                    <img src="images/test.gif" alt="Visuotactile-Based Learning" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white">Visuotactile-Based Learning for Insertion with Compliant Hands</h3>
+                        <p class="text-slate-400 mt-2"><strong>Osher Azulay</strong>, Dhruv Metha Ramesh, Nimrod Curtis, and Avishai Sintov.</p>
+                        <p class="text-cyan-400 mt-1 italic">IEEE RA-L & IROS, 2025</p>
+                        <p class="text-slate-400 mt-4">Sim2real learning of robust precision insertion polices with compliant hands.</p>
+                        <div class="mt-4">
+                            <a href="https://osheraz.github.io/visuotactile/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block mr-4">Website &rarr;</a>
+                            <a href="https://arxiv.org/abs/2411.06408" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block mr-4">Paper &rarr;</a>
+                            <a href="https://github.com/osheraz/IsaacGymInsertion" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block">Code &rarr;</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <div class="border-b border-slate-800 my-20"></div>
 
         <!-- Projects Section -->
         <section id="projects" class="py-20 section">
             <h2 class="text-4xl font-bold text-center text-white mb-12">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
                     <img src="images/shopipal.gif" alt="ShopiPal Project" class="w-full h-48 object-cover">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold text-white mb-2">ShopiPal: An Autonomous Robotic Cart</h3>
@@ -342,14 +389,17 @@
                     </div>
                     <div class="p-6 pt-0">
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">ROS</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">C++</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Jetson Nano</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Robotics</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Conrtol</span>
+                            <!-- Technical -->
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">ROS</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">C++</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Jetson Nano</span>
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
                     <img src="images/slam_project.gif" alt="SLAM Project" class="w-full h-48 object-cover">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold text-white mb-2">Mini-Projects on SLAM</h3>
@@ -360,13 +410,12 @@
                     <div class="p-6 pt-0">
                          <div class="flex flex-wrap gap-2">
                             <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">SLAM</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">C++</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">KITTI</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">KITTI</span>
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
                     <img src="images/deep_learning_project.png" alt="Deep Learning Project" class="w-full h-48 object-cover">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold text-white mb-2">Deep Learning Projects Collection</h3>
@@ -377,12 +426,13 @@
                      <div class="p-6 pt-0">
                          <div class="flex flex-wrap gap-2">
                             <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Deep Learning</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">PyTorch</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <!-- Technical -->
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">PyTorch</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
                         </div>
                     </div>
                 </div>
-                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-2 transition duration-300 shadow-lg flex flex-col">
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
                     <img src="images/computer_vision_projects.png" alt="Computer Vision Projects" class="w-full h-48 object-cover">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold text-white mb-2">Computer Vision Mini Projects</h3>
@@ -393,14 +443,18 @@
                      <div class="p-6 pt-0">
                          <div class="flex flex-wrap gap-2">
                             <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Computer Vision</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">OpenCV</span>
-                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Deep Learning</span>
+                            <!-- Technical -->
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">OpenCV</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
+        <div class="border-b border-slate-800 my-20"></div>
+
         <!-- Awards Section -->
         <section id="awards" class="py-20 section">
             <h2 class="text-4xl font-bold text-center text-white mb-12">Awards & Honors</h2>
@@ -439,8 +493,11 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
                 </svg>
             </a>
-            <p class="mb-4 pt-8">Looking forward to creating amazing things together.</p>
-            <p>&copy; 2025 Nimrod Curtis. All rights reserved.</p>
+            <blockquote class="mb-4 pt-8 italic">
+                <p>"It may be that machines will do the work that makes life possible and that human beings will do all the other things that make life pleasant and worthwhile."</p>
+                <cite class="mt-2 block text-right not-italic">- Isaac Asimov, Robot Visions</cite>
+            </blockquote>
+            <p class="mt-8">&copy; 2025 Nimrod Curtis. All rights reserved.</p>
         </div>
     </footer>
 
@@ -463,4 +520,4 @@
     </script>
 
 </body>
-</html>
+</ht
