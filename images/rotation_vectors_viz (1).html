@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6D Trajectory: Translation + Rotation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0a0a0a;
+            color: white;
+            font-family: 'Courier New', monospace;
+        }
+        #container {
+            display: flex;
+            gap: 20px;
+        }
+        #visualization {
+            width: 800px;
+            height: 600px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: radial-gradient(circle, #1a1a2e, #000000);
+        }
+        #controls {
+            flex: 1;
+            background: #1a1a2e;
+            padding: 20px;
+            border-radius: 8px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .current-vector {
+            background: #2a2a4e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #00ff88;
+        }
+        .trajectory-info {
+            background: #2a2a4e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff8800;
+        }
+        .vector-display {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #333;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #0088ff);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        button {
+            background: linear-gradient(45deg, #333, #555);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            min-width: 90px;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #555, #777);
+            transform: translateY(-2px);
+        }
+        .controls-group {
+            margin: 15px 0;
+            padding: 15px;
+            background: #2a2a4e;
+            border-radius: 6px;
+        }
+        h1 {
+            text-align: center;
+            color: #00ff88;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+        .coordinate {
+            font-family: 'Courier New', monospace;
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin: 2px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>🛤️ 6D Trajectory: Translation + Rotation Path</h1>
+    
+    <div id="container">
+        <div id="visualization"></div>
+        <div id="controls">
+            <div class="current-vector">
+                <h3>Current Step: <span id="current-index">Ready to start</span></h3>
+                <div id="current-info" class="vector-display">
+                    Click "Animate Trajectory" to see the 6D path (translation + rotation) unfold!
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+            </div>
+
+            <div class="trajectory-info">
+                <h3>🎯 Current Position & Orientation</h3>
+                <div id="position-info" class="vector-display">
+                    Starting at origin: [0.000, 0.000, 0.000]<br>
+                    Initial orientation: [0.000, 0.000, 0.000]
+                </div>
+                <h4>📏 6D Path Statistics</h4>
+                <div id="path-stats">
+                    Total distance: 0.000<br>
+                    Path segments: 0<br>
+                    Total rotation: 0.000°
+                </div>
+            </div>
+
+            <div class="controls-group">
+                <h4>🎬 Animation Controls:</h4>
+                <button onclick="startAnimation()">🚀 Animate 6D Trajectory</button>
+                <button onclick="pauseAnimation()">⏸️ Pause</button>
+                <button onclick="resetTrajectory()">🔄 Reset</button>
+                <br>
+                <button onclick="stepNext()">⏭️ Next Step</button>
+                <button onclick="stepPrev()">⏮️ Previous Step</button>
+                <br>
+                <button onclick="showCompletePath()">🗺️ Show Complete Path</button>
+                <button onclick="clearAll()">🚫 Clear All</button>
+            </div>
+
+            <div class="controls-group">
+                <h4>⚡ Speed & View:</h4>
+                <button onclick="changeSpeed(0.3)">🐌 Slow (3s)</button>
+                <button onclick="changeSpeed(1)">🚶 Normal (1s)</button>
+                <button onclick="changeSpeed(2)">🏃 Fast (0.5s)</button>
+                <br>
+                <button onclick="toggleTrail()">✨ Toggle Trail</button>
+                <button onclick="togglePoints()">🔵 Toggle Points</button>
+                <button onclick="toggleRotations()">🧭 Toggle Rotations</button>
+                <br>
+                <button onclick="toggleAutoRotate()">🔄 Auto-Rotate</button>
+            </div>
+
+            <div class="controls-group">
+                <h4>📷 Camera Controls:</h4>
+                <p style="font-size: 11px; color: #aaa; margin: 5px 0;">
+                    Use buttons, arrow keys, or WASD. +/- to zoom, R to reset.
+                </p>
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <button onclick="moveCamera('up')" style="min-width: 70px;">⬆️ Up</button>
+                </div>
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <button onclick="moveCamera('left')" style="min-width: 70px;">⬅️ Left</button>
+                    <button onclick="resetCamera()" style="min-width: 70px;">🎯 Reset</button>
+                    <button onclick="moveCamera('right')" style="min-width: 70px;">➡️ Right</button>
+                </div>
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <button onclick="moveCamera('down')" style="min-width: 70px;">⬇️ Down</button>
+                </div>
+                <div style="text-align: center;">
+                    <button onclick="moveCamera('in')" style="min-width: 70px;">🔍 In</button>
+                    <button onclick="moveCamera('out')" style="min-width: 70px;">🔍 Out</button>
+                </div>
+            </div>
+
+            <div class="controls-group">
+                <h4>🔍 Scale Controls:</h4>
+                <div style="margin-bottom: 10px;">
+                    <strong>Current Scale:</strong> <span id="current-scale">10000x</span>
+                </div>
+                <button onclick="changeScale(1000)">🔬 Micro (1000x)</button>
+                <button onclick="changeScale(5000)">📏 Small (5000x)</button>
+                <button onclick="changeScale(10000)">🔍 Normal (10000x)</button>
+                <br>
+                <button onclick="changeScale(20000)">🔎 Large (20000x)</button>
+                <button onclick="changeScale(50000)">🔭 Huge (50000x)</button>
+                <button onclick="fitToView()">📐 Fit to View</button>
+                <br>
+                <button onclick="scaleUp()">➕ Scale Up</button>
+                <button onclick="scaleDown()">➖ Scale Down</button>
+            </div>
+
+            <div class="controls-group">
+                <h4>📊 6D Path Data (Position + Orientation):</h4>
+                <div id="path-data" style="max-height: 200px; overflow-y: auto; font-size: 11px;">
+                    <div class="coordinate">0: [0.000, 0.000, 0.000]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // // Data
+        // const translationVectors = [
+        //     [-0.0005, -0.0003,  0.0003],
+        //     [-0.0009, -0.0005,  0.0006],
+        //     [-0.0013, -0.0007,  0.0010],
+        //     [-0.0017, -0.0009,  0.0014],
+        //     [-0.0022, -0.0010,  0.0019],
+        //     [-0.0026, -0.0013,  0.0024],
+        //     [-0.0029, -0.0013,  0.0029],
+        //     [-0.0032, -0.0014,  0.0035],
+        //     [-0.0034, -0.0015,  0.0040],
+        //     [-0.0036, -0.0014,  0.0046],
+        //     [-0.0039, -0.0016,  0.0052],
+        //     [-0.0041, -0.0014,  0.0059],
+        //     [-0.0043, -0.0016,  0.0065],
+        //     [-0.0045, -0.0016,  0.0071],
+        //     [-0.0048, -0.0017,  0.0077],
+        //     [-0.0049, -0.0018,  0.0083]
+        // ];
+
+        // const rotationVectors = [
+        //     [0.0359,  0.0137, -0.0016],
+        //     [0.0210, -0.0048, -0.0155],
+        //     [0.0092,  0.0024, -0.0159],
+        //     [0.0255, -0.0019, -0.0132],
+        //     [0.0239,  0.0013, -0.0210],
+        //     [0.0012, -0.0024, -0.0339],
+        //     [0.0067,  0.0120, -0.0267],
+        //     [0.0098,  0.0026, -0.0459],
+        //     [0.0158, -0.0003, -0.0511],
+        //     [0.0286, -0.0065, -0.0666],
+        //     [0.0273, -0.0013, -0.0652],
+        //     [0.0231, -0.0126, -0.0702],
+        //     [0.0244, -0.0103, -0.0687],
+        //     [0.0330, -0.0053, -0.0775],
+        //     [0.0328, -0.0136, -0.0757],
+        //     [0.0169, -0.0066, -0.0894]
+        // ];
+    // Data
+    const translationVectors = [
+        [-0.0004, -0.0002,  0.0002],
+        [-0.0008, -0.0004,  0.0003],
+        [-0.0012, -0.0006,  0.0005],
+        [-0.0015, -0.0008,  0.0006],
+        [-0.0019, -0.0010,  0.0008],
+        [-0.0022, -0.0012,  0.0009],
+        [-0.0027, -0.0014,  0.0011],
+        [-0.0030, -0.0016,  0.0012],
+        [-0.0034, -0.0018,  0.0014],
+        [-0.0038, -0.0020,  0.0015],
+        [-0.0042, -0.0022,  0.0017],
+        [-0.0046, -0.0025,  0.0019],
+        [-0.0049, -0.0027,  0.0021],
+        [-0.0053, -0.0028,  0.0023],
+        [-0.0057, -0.0029,  0.0025],
+        [-0.0060, -0.0032,  0.0028]
+    ];
+
+    const rotationVectors = [
+        [-0.0035, -0.0014,  0.0043],
+        [-0.0021, -0.0009,  0.0051],
+        [ 0.0003,  0.0036,  0.0046],
+        [-0.0031, -0.0006,  0.0081],
+        [-0.0018,  0.0012,  0.0076],
+        [-0.0038,  0.0027,  0.0069],
+        [-0.0012, -0.0003,  0.0058],
+        [-0.0048,  0.0016,  0.0056],
+        [-0.0032,  0.0038,  0.0065],
+        [-0.0016,  0.0002,  0.0104],
+        [ 0.0013,  0.0002,  0.0065],
+        [ 0.0025, -0.0001,  0.0092],
+        [-0.0009, -0.0021,  0.0100],
+        [-0.0028,  0.0010,  0.0099],
+        [ 0.0018,  0.0041,  0.0071],
+        [ 0.0017,  0.0010,  0.0133]
+    ];
+        // Global variables
+        let scene, camera, renderer;
+        let trajectoryPoints = [];
+        let accumulatedRotations = [];
+        let pathSegments = [];
+        let spheres = [];
+        let rotationArrows = [];
+        let currentArrow = null;
+        
+        let currentIndex = -1;
+        let animationSpeed = 1;
+        let animationInterval = null;
+        let isPaused = false;
+        let showTrail = true;
+        let showPoints = true;
+        let showRotations = true;
+        let currentScale = 10000;
+        
+        // Camera control variables
+        let autoRotate = false;
+        let cameraDistance = 20;
+        let cameraAngleX = 0;
+        let cameraAngleY = 0.5;
+        let cameraHeight = 12;
+
+        // Initialize visualization 
+        function init() {
+            calculateTrajectoryPoints();
+            setupScene();
+            updatePathData();
+            document.getElementById('current-scale').textContent = currentScale + 'x';
+            
+            // Set initial auto-rotate button text
+            const autoRotateBtn = document.querySelector('button[onclick="toggleAutoRotate()"]');
+            if (autoRotateBtn) {
+                autoRotateBtn.textContent = autoRotate ? '⏸️ Stop Auto-Rotate' : '🔄 Auto-Rotate';
+            }
+            
+            animate();
+        }
+
+        // Calculate all trajectory points
+        function calculateTrajectoryPoints() {
+            trajectoryPoints = [[0, 0, 0]];
+            accumulatedRotations = [[0, 0, 0]];
+            
+            let cumulativeTranslation = [0, 0, 0];
+            let cumulativeRotation = [0, 0, 0];
+            
+            for (let i = 0; i < translationVectors.length; i++) {
+                const transVec = translationVectors[i];
+                const rotVec = rotationVectors[i];
+                
+                cumulativeTranslation = [
+                    cumulativeTranslation[0] + transVec[0] * currentScale,
+                    cumulativeTranslation[1] + transVec[1] * currentScale,
+                    cumulativeTranslation[2] + transVec[2] * currentScale
+                ];
+                trajectoryPoints.push([...cumulativeTranslation]);
+                
+                cumulativeRotation = [
+                    cumulativeRotation[0] + rotVec[0],
+                    cumulativeRotation[1] + rotVec[1],
+                    cumulativeRotation[2] + rotVec[2]
+                ];
+                accumulatedRotations.push([...cumulativeRotation]);
+            }
+        }
+
+        // Setup Three.js scene
+        function setupScene() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x000011);
+            
+            camera = new THREE.PerspectiveCamera(75, 800/600, 0.1, 1000);
+            updateCameraPosition();
+            
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(800, 600);
+            document.getElementById('visualization').appendChild(renderer.domElement);
+
+            const gridHelper = new THREE.GridHelper(20, 40, 0x444444, 0x222222);
+            scene.add(gridHelper);
+
+            const axesHelper = new THREE.AxesHelper(6);
+            scene.add(axesHelper);
+
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 10, 10);
+            scene.add(directionalLight);
+        }
+
+        // Show trajectory step
+        function showTrajectoryStep(index) {
+            if (index < 0 || index > translationVectors.length) return;
+            
+            currentIndex = index;
+            updateDisplay(index);
+            clearVisuals();
+            
+            if (index > 0) {
+                drawTrajectorySegments(index);
+                drawTrajectoryPoints(index);
+                drawRotationArrows(index);
+                drawCurrentVector(index - 1);
+            } else {
+                drawStartingPoint();
+            }
+        }
+
+        // Update display information
+        function updateDisplay(index) {
+            if (index === 0) {
+                document.getElementById('current-index').textContent = 'Starting Position';
+                document.getElementById('current-info').innerHTML = 
+                    '<strong>At Origin:</strong> [0.000, 0.000, 0.000]<br>' +
+                    '<strong>Initial Orientation:</strong> [0.000, 0.000, 0.000]<br>' +
+                    '<strong>Ready for:</strong> First translation + rotation';
+            } else {
+                const transVec = translationVectors[index - 1];
+                const rotVec = rotationVectors[index - 1];
+                const transMagnitude = Math.sqrt(transVec[0]*transVec[0] + transVec[1]*transVec[1] + transVec[2]*transVec[2]);
+                const rotMagnitude = Math.sqrt(rotVec[0]*rotVec[0] + rotVec[1]*rotVec[1] + rotVec[2]*rotVec[2]);
+                const rotAngle = rotMagnitude * 180 / Math.PI;
+                
+                document.getElementById('current-index').textContent = index + ' / ' + translationVectors.length;
+                document.getElementById('current-info').innerHTML = 
+                    '<strong>Translation ' + index + ':</strong> [' + transVec[0].toFixed(6) + ', ' + transVec[1].toFixed(6) + ', ' + transVec[2].toFixed(6) + ']<br>' +
+                    '<strong>Rotation ' + index + ':</strong> [' + rotVec[0].toFixed(4) + ', ' + rotVec[1].toFixed(4) + ', ' + rotVec[2].toFixed(4) + ']<br>' +
+                    '<strong>Translation Distance:</strong> ' + (transMagnitude * currentScale).toFixed(3) + ' units<br>' +
+                    '<strong>Rotation Angle:</strong> ' + rotAngle.toFixed(3) + '°';
+            }
+            
+            const currentPos = trajectoryPoints[index];
+            const currentRot = accumulatedRotations[index];
+            const rotMag = Math.sqrt(currentRot[0]*currentRot[0] + currentRot[1]*currentRot[1] + currentRot[2]*currentRot[2]);
+            const totalRotAngle = rotMag * 180 / Math.PI;
+            
+            document.getElementById('position-info').innerHTML = 
+                'Current position: <span class="coordinate">[' + currentPos[0].toFixed(3) + ', ' + currentPos[1].toFixed(3) + ', ' + currentPos[2].toFixed(3) + ']</span><br>' +
+                'Current orientation: <span class="coordinate">[' + currentRot[0].toFixed(4) + ', ' + currentRot[1].toFixed(4) + ', ' + currentRot[2].toFixed(4) + ']</span><br>' +
+                'Total rotation: <span class="coordinate">' + totalRotAngle.toFixed(3) + '°</span>';
+            
+            let totalDistance = 0;
+            for (let i = 1; i <= index; i++) {
+                const prev = trajectoryPoints[i-1];
+                const curr = trajectoryPoints[i];
+                const dist = Math.sqrt((curr[0]-prev[0])*(curr[0]-prev[0]) + (curr[1]-prev[1])*(curr[1]-prev[1]) + (curr[2]-prev[2])*(curr[2]-prev[2]));
+                totalDistance += dist;
+            }
+            
+            document.getElementById('path-stats').innerHTML = 
+                'Total distance: ' + totalDistance.toFixed(3) + '<br>' +
+                'Path segments: ' + index + '<br>' +
+                'Current step: ' + (index > 0 ? index : 'N/A') + '<br>' +
+                'Total rotation: ' + totalRotAngle.toFixed(3) + '°';
+            
+            const progress = (index / translationVectors.length) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        // Clear all visuals
+        function clearVisuals() {
+            if (currentArrow) {
+                scene.remove(currentArrow);
+                currentArrow = null;
+            }
+            
+            pathSegments.forEach(segment => scene.remove(segment));
+            pathSegments = [];
+            
+            spheres.forEach(sphere => scene.remove(sphere));
+            spheres = [];
+            
+            rotationArrows.forEach(arrow => scene.remove(arrow));
+            rotationArrows = [];
+        }
+
+        // Draw trajectory segments
+        function drawTrajectorySegments(upToIndex) {
+            if (!showTrail) return;
+            
+            for (let i = 1; i <= upToIndex; i++) {
+                const start = new THREE.Vector3(...trajectoryPoints[i-1]);
+                const end = new THREE.Vector3(...trajectoryPoints[i]);
+                
+                const geometry = new THREE.BufferGeometry().setFromPoints([start, end]);
+                const hue = (i / translationVectors.length) * 0.8;
+                const color = new THREE.Color().setHSL(hue, 0.9, 0.6);
+                const material = new THREE.LineBasicMaterial({ color: color, linewidth: 3 });
+                
+                const line = new THREE.Line(geometry, material);
+                scene.add(line);
+                pathSegments.push(line);
+            }
+        }
+
+        // Draw trajectory points
+        function drawTrajectoryPoints(upToIndex) {
+            if (!showPoints) return;
+            
+            for (let i = 0; i <= upToIndex; i++) {
+                const pos = trajectoryPoints[i];
+                const geometry = new THREE.SphereGeometry(0.3, 8, 8);
+                const hue = (i / translationVectors.length) * 0.8;
+                const color = new THREE.Color().setHSL(hue, 0.9, 0.7);
+                const material = new THREE.MeshLambertMaterial({ color: color });
+                
+                const sphere = new THREE.Mesh(geometry, material);
+                sphere.position.set(pos[0], pos[1], pos[2]);
+                
+                if (i === upToIndex) {
+                    sphere.scale.set(2, 2, 2);
+                    const glowGeometry = new THREE.SphereGeometry(0.6, 8, 8);
+                    const glowMaterial = new THREE.MeshBasicMaterial({ 
+                        color: color, transparent: true, opacity: 0.3 
+                    });
+                    const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+                    sphere.add(glow);
+                }
+                
+                scene.add(sphere);
+                spheres.push(sphere);
+            }
+        }
+
+        // Draw rotation arrows
+        function drawRotationArrows(upToIndex) {
+            if (!showRotations) return;
+            
+            for (let i = 1; i <= upToIndex; i++) {
+                const pos = trajectoryPoints[i];
+                const rotVec = accumulatedRotations[i];
+                
+                const rotMagnitude = Math.sqrt(rotVec[0]*rotVec[0] + rotVec[1]*rotVec[1] + rotVec[2]*rotVec[2]);
+                if (rotMagnitude < 0.0001) continue;
+                
+                const rotDirection = [rotVec[0]/rotMagnitude, rotVec[1]/rotMagnitude, rotVec[2]/rotMagnitude];
+                const origin = new THREE.Vector3(pos[0], pos[1], pos[2]);
+                const direction = new THREE.Vector3(rotDirection[0], rotDirection[1], rotDirection[2]);
+                const arrowLength = Math.max(rotMagnitude * currentScale * 0.05, 1.0);
+                
+                const progressHue = (i / translationVectors.length) * 0.6;
+                const magnitudeIntensity = Math.min(rotMagnitude * 10, 1.0);
+                const color = new THREE.Color().setHSL(progressHue + 0.3, 0.8, 0.4 + magnitudeIntensity * 0.4);
+                
+                const rotArrow = new THREE.ArrowHelper(direction, origin, arrowLength, color, arrowLength * 0.25, arrowLength * 0.15);
+                scene.add(rotArrow);
+                rotationArrows.push(rotArrow);
+            }
+        }
+
+        // Draw current vector
+        function drawCurrentVector(vectorIndex) {
+            if (vectorIndex < 0 || vectorIndex >= translationVectors.length) return;
+            
+            const startPos = trajectoryPoints[vectorIndex];
+            const endPos = trajectoryPoints[vectorIndex + 1];
+            
+            const start = new THREE.Vector3(...startPos);
+            const end = new THREE.Vector3(...endPos);
+            const direction = end.clone().sub(start).normalize();
+            const length = start.distanceTo(end);
+            
+            const hue = (vectorIndex / translationVectors.length) * 0.8;
+            const color = new THREE.Color().setHSL(hue, 1.0, 0.5);
+            
+            currentArrow = new THREE.ArrowHelper(direction, start, length, color, length * 0.3, length * 0.2);
+            scene.add(currentArrow);
+        }
+
+        // Draw starting point
+        function drawStartingPoint() {
+            const geometry = new THREE.SphereGeometry(0.5, 16, 16);
+            const material = new THREE.MeshLambertMaterial({ color: 0x00ff88, emissive: 0x002211 });
+            const startSphere = new THREE.Mesh(geometry, material);
+            startSphere.position.set(0, 0, 0);
+            scene.add(startSphere);
+            spheres.push(startSphere);
+        }
+
+        // Update path data display
+        function updatePathData() {
+            const pathDataDiv = document.getElementById('path-data');
+            pathDataDiv.innerHTML = '';
+            
+            for (let i = 0; i < trajectoryPoints.length; i++) {
+                const point = trajectoryPoints[i];
+                const div = document.createElement('div');
+                div.className = 'coordinate';
+                if (i < accumulatedRotations.length) {
+                    const rot = accumulatedRotations[i];
+                    div.innerHTML = i + ': Pos[' + point[0].toFixed(3) + ', ' + point[1].toFixed(3) + ', ' + point[2].toFixed(3) + '] Rot[' + rot[0].toFixed(4) + ', ' + rot[1].toFixed(4) + ', ' + rot[2].toFixed(4) + ']';
+                } else {
+                    div.innerHTML = i + ': [' + point[0].toFixed(3) + ', ' + point[1].toFixed(3) + ', ' + point[2].toFixed(3) + ']';
+                }
+                pathDataDiv.appendChild(div);
+            }
+        }
+
+        // Animation functions
+        function startAnimation() {
+            if (animationInterval) clearInterval(animationInterval);
+            resetTrajectory();
+            let index = 0;
+            animationInterval = setInterval(function() {
+                if (!isPaused) {
+                    showTrajectoryStep(index);
+                    index++;
+                    if (index > translationVectors.length) {
+                        clearInterval(animationInterval);
+                        animationInterval = null;
+                    }
+                }
+            }, animationSpeed * 1000);
+        }
+
+        function pauseAnimation() {
+            isPaused = !isPaused;
+            const btn = document.querySelector('button[onclick="pauseAnimation()"]');
+            btn.textContent = isPaused ? '▶️ Resume' : '⏸️ Pause';
+        }
+
+        function resetTrajectory() {
+            if (animationInterval) {
+                clearInterval(animationInterval);
+                animationInterval = null;
+            }
+            isPaused = false;
+            currentIndex = -1;
+            clearVisuals();
+            showTrajectoryStep(0);
+            const btn = document.querySelector('button[onclick="pauseAnimation()"]');
+            if (btn) btn.textContent = '⏸️ Pause';
+        }
+
+        function stepNext() {
+            if (currentIndex < translationVectors.length) {
+                showTrajectoryStep(currentIndex + 1);
+            }
+        }
+
+        function stepPrev() {
+            if (currentIndex > 0) {
+                showTrajectoryStep(currentIndex - 1);
+            }
+        }
+
+        function showCompletePath() {
+            showTrajectoryStep(translationVectors.length);
+        }
+
+        function clearAll() {
+            clearVisuals();
+            currentIndex = -1;
+            document.getElementById('current-index').textContent = 'Cleared';
+            document.getElementById('current-info').textContent = 'All elements hidden. Click animate to start again.';
+            document.getElementById('position-info').textContent = 'No active visualization';
+            document.getElementById('path-stats').textContent = 'Cleared';
+            document.getElementById('progress').style.width = '0%';
+        }
+
+        // Control functions
+        function changeSpeed(speed) {
+            animationSpeed = 1 / speed;
+        }
+
+        function toggleTrail() {
+            showTrail = !showTrail;
+            if (currentIndex >= 0) {
+                showTrajectoryStep(currentIndex);
+            }
+        }
+
+        function togglePoints() {
+            showPoints = !showPoints;
+            if (currentIndex >= 0) {
+                showTrajectoryStep(currentIndex);
+            }
+        }
+
+        function toggleRotations() {
+            showRotations = !showRotations;
+            if (currentIndex >= 0) {
+                showTrajectoryStep(currentIndex);
+            }
+        }
+
+        // Camera control functions
+        function updateCameraPosition() {
+            const x = Math.cos(cameraAngleX) * cameraDistance;
+            const z = Math.sin(cameraAngleX) * cameraDistance;
+            const y = cameraHeight + Math.sin(cameraAngleY) * 5;
+            
+            camera.position.set(x, y, z);
+            camera.lookAt(0, 2, 0);
+        }
+
+        function moveCamera(direction) {
+            switch(direction) {
+                case 'left':
+                    cameraAngleX -= 0.2;
+                    break;
+                case 'right':
+                    cameraAngleX += 0.2;
+                    break;
+                case 'up':
+                    cameraHeight = Math.min(cameraHeight + 2, 30);
+                    break;
+                case 'down':
+                    cameraHeight = Math.max(cameraHeight - 2, 2);
+                    break;
+                case 'in':
+                    cameraDistance = Math.max(cameraDistance - 3, 5);
+                    break;
+                case 'out':
+                    cameraDistance = Math.min(cameraDistance + 3, 50);
+                    break;
+            }
+            updateCameraPosition();
+        }
+
+        function resetCamera() {
+            cameraDistance = 20;
+            cameraAngleX = 0;
+            cameraAngleY = 0.5;
+            cameraHeight = 12;
+            updateCameraPosition();
+        }
+
+        function toggleAutoRotate() {
+            autoRotate = !autoRotate;
+            const btn = document.querySelector('button[onclick="toggleAutoRotate()"]');
+            if (btn) {
+                btn.textContent = autoRotate ? '⏸️ Stop Auto-Rotate' : '🔄 Auto-Rotate';
+            }
+        }
+
+        function changeScale(newScale) {
+            currentScale = newScale;
+            document.getElementById('current-scale').textContent = newScale + 'x';
+            calculateTrajectoryPoints();
+            updatePathData();
+            if (currentIndex >= 0) {
+                showTrajectoryStep(currentIndex);
+            }
+        }
+
+        function scaleUp() {
+            const newScale = Math.min(currentScale * 1.5, 100000);
+            changeScale(Math.round(newScale));
+        }
+
+        function scaleDown() {
+            const newScale = Math.max(currentScale / 1.5, 100);
+            changeScale(Math.round(newScale));
+        }
+
+        function fitToView() {
+            let minX = 0, maxX = 0, minY = 0, maxY = 0, minZ = 0, maxZ = 0;
+            let cumulative = [0, 0, 0];
+            
+            for (let i = 0; i < translationVectors.length; i++) {
+                const vec = translationVectors[i];
+                cumulative = [
+                    cumulative[0] + vec[0],
+                    cumulative[1] + vec[1],
+                    cumulative[2] + vec[2]
+                ];
+                minX = Math.min(minX, cumulative[0]);
+                maxX = Math.max(maxX, cumulative[0]);
+                minY = Math.min(minY, cumulative[1]);
+                maxY = Math.max(maxY, cumulative[1]);
+                minZ = Math.min(minZ, cumulative[2]);
+                maxZ = Math.max(maxZ, cumulative[2]);
+            }
+            
+            const rangeX = maxX - minX;
+            const rangeY = maxY - minY;
+            const rangeZ = maxZ - minZ;
+            const maxRange = Math.max(rangeX, rangeY, rangeZ);
+            const targetSize = 15;
+            const optimalScale = maxRange > 0 ? targetSize / maxRange : 10000;
+            changeScale(Math.round(optimalScale));
+        }
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Only auto-rotate if enabled
+            if (autoRotate) {
+                const time = Date.now() * 0.0003;
+                cameraAngleX = time;
+                updateCameraPosition();
+            }
+            
+            renderer.render(scene, camera);
+        }
+
+        // Start everything
+        init();
+
+        // Keyboard controls
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case 'ArrowLeft':
+                case 'a':
+                case 'A':
+                    moveCamera('left');
+                    event.preventDefault();
+                    break;
+                case 'ArrowRight':
+                case 'd':
+                case 'D':
+                    moveCamera('right');
+                    event.preventDefault();
+                    break;
+                case 'ArrowUp':
+                case 'w':
+                case 'W':
+                    moveCamera('up');
+                    event.preventDefault();
+                    break;
+                case 'ArrowDown':
+                case 's':
+                case 'S':
+                    moveCamera('down');
+                    event.preventDefault();
+                    break;
+                case '+':
+                case '=':
+                    moveCamera('in');
+                    event.preventDefault();
+                    break;
+                case '-':
+                case '_':
+                    moveCamera('out');
+                    event.preventDefault();
+                    break;
+                case 'r':
+                case 'R':
+                    resetCamera();
+                    event.preventDefault();
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

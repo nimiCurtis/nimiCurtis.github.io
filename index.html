@@ -315,7 +315,7 @@
             <h2 class="text-4xl font-bold text-center text-white mb-12">My Research</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-slate-600 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
-                    <video class="w-full h-48 object-cover" muted autoplay loop> 
+                    <video class="w-full h-full object-cover" muted autoplay loop> 
                         <source src="data/viden.mp4" type="video/mp4">
                     </video>
                     <div class="p-6 flex-grow">
@@ -356,7 +356,7 @@
                         </div>
                     </div>
                 </div>
-                 <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
                     <img src="images/test.gif" alt="Visuotactile-Based Learning" class="w-full h-48 object-cover">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold text-white">Visuotactile-Based Learning for Insertion with Compliant Hands</h3>
@@ -370,6 +370,22 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
+                    <img src="images/lifeward.png" alt="LIFEWARD Workshop Poster" class="w-full h-full object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white">A Framework for Safe and Natural Mobility in Lower Limb Exoskeletons</h3>
+                        <p class="text-slate-400 mt-2"><strong>Nimrod Curtis</strong>, Anis Shakour, David Hexner, Yehuda Bitton, and Avishai Sintov</p>
+                        <p class="text-cyan-400 mt-1 italic">Workshop on emerging technologies in smart exoskeletons systems, ICRA,  2024</p>
+                        <p class="text-slate-400 mt-4">Developing a context-aware control framework for exoskeletons that uses wearable sensors and vision to detect user intent and terrain, enabling safe and intuitive mobility.
+                        </p>
+                        <div class="mt-4">
+                            <a href="https://github.com/nimiCurtis/zion_ros2" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block mr-4">Code &rarr;</a>
+                            <a href="data/LIFEWARD_workshop.pdf" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold inline-block">Poster &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </section>
 
@@ -379,6 +395,31 @@
         <section id="projects" class="py-20 section">
             <h2 class="text-4xl font-bold text-center text-white mb-12">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+
+                <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
+                    <img src="images/so101.png" alt="Lerobot SO101 + ROS2 + Isaacsim/lab" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-2">Lerobot SO101 + ROS2 + Isaacsim/lab</h3>
+                        <p class="text-cyan-400 italic text-sm">In Progress ...</p>
+                        <p class="text-slate-400 my-4"></p>Developing a ROS 2 package for the Lerobot SO101 arm, enabling integration with Isaac Sim/Lab environments and training policies through co-training frameworks from both simulation and real-world data.</p>
+                        <a href="https://github.com/nimiCurtis/so101_ros2" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 font-semibold">View Code &rarr;</a>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Robotics</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Imitaion Learning</span>
+                            <span class="bg-slate-700 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Deep Learning</span>
+
+                            <!-- Technical -->
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">ROS2</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">C++</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-cyan-900 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full">Isaac</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
                     <img src="images/shopipal.gif" alt="ShopiPal Project" class="w-full h-48 object-cover">
                     <div class="p-6 flex-grow">
@@ -399,8 +440,9 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="bg-slate-800 rounded-lg overflow-hidden transform hover:-translate-y-3 hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 flex flex-col">
-                    <img src="images/slam_project.gif" alt="SLAM Project" class="w-full h-48 object-cover">
+                    <img src="images/slam_project.gif" alt="SLAM Project" class="w-full h-full object-cover">
                     <div class="p-6 flex-grow">
                         <h3 class="text-xl font-bold text-white mb-2">Mini-Projects on SLAM</h3>
                         <p class="text-cyan-400 italic text-sm">Coursework</p>
